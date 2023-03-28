@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <script src="assets/data.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="content"></div>
+        <div id="menu" class="menu_closed"></div>
+        <div id="cargador" class="cargador-offf">
+            <div id="cortina1"></div>
+            <div id="cortina2"></div>
+            <div id="preloader"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+
+        var audio_over = new Audio('assets/media/over.mp3');
+        createMenu()
+
+        window.onload = function(){
+            renderView()
+        }
+    </script>
+</body>
+</html>

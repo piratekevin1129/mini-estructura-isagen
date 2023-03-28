@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('fonts/Quicksand-Medium.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand-Bold';
+    src: url('fonts/Quicksand-Bold.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
