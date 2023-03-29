@@ -102,6 +102,18 @@ var actual_content = 0
 var player = null
 var actual_content_data = null
 var path = ''
+var instrucciones_modal = false
+
+function closeInstrucciones(){
+    document.getElementById('instrucciones').className = 'instrucciones-off'
+    instrucciones_modal = true
+    if(player!=null){
+        player.play().then(function(){
+            player.setVolume(1);
+            console.log("reproducción automatica!")
+        })
+    }
+}
 
 function renderView(){
     animating_cargador = true
@@ -114,10 +126,16 @@ function renderView(){
     i_frame.setAttribute('id','mi_frame')
     i_frame.setAttribute('scrolling','no')
     i_frame.setAttribute('border','0')
+    
     document.getElementById('content').appendChild(i_frame)
 
     if(actual_content_data.type=='video'){
-        path = 'https://player.vimeo.com/video/'+actual_content_data.id+'?autoplay=1'
+        i_frame.setAttribute("allow","autoplay")
+        if(!instrucciones_modal){
+            path = 'https://player.vimeo.com/video/'+actual_content_data.id
+        }else{
+            path = 'https://player.vimeo.com/video/'+actual_content_data.id+'?autoplay=1&muted=1'
+        }
 
         i_frame.setAttribute('src',path)        
         $('#mi_frame').on('load', funcionLoadIframe);
@@ -134,10 +152,17 @@ function renderView(){
 function funcionLoadIframe(){
     if(actual_content_data.type=='video'){
         player = new Vimeo.Player($('#mi_frame'));
-        console.log("cargó nuevo video")
-        player.play().then(function(){
-            console.log("reproducción automatica!")
-        })
+
+        if(!instrucciones_modal){
+            document.getElementById('instrucciones').className = 'instrucciones-on'    
+            console.log("cargó nuevo video")
+        }else{
+            player.play().then(function(){
+                player.setVolume(1);
+                console.log("reproducción automatica!")
+            })
+        }
+
         player.on('ended', funcionEndVideo);
     
         $('#i__frame').off('load', funcionLoadIframe)
@@ -155,7 +180,8 @@ function funcionEndVideo (next){
     player.unload();
     player = null
 
-    if(next==null||next==undefined){
+    if(next!==false){
+        console.log(actual_content_data.next)
         if(actual_content_data.next){
             nextContent()
         }

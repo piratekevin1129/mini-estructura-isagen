@@ -282,6 +282,171 @@ body,html{
     top: 50%;
 }
 
+#instrucciones{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.65);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#instrucciones-box{
+    position: relative;
+    width: 400px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 4px;
+
+    box-shadow: 0px 2px 10px -2px rgba(0,0,0,0.5);
+}
+
+.instrucciones-content{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.instrucciones-content h1{
+    font-family: 'Quicksand-Bold';
+    font-size: 15px;
+    color: #333333;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+.instrucciones-content img{
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.instrucciones-content p{
+    font-family: 'Quicksand-Medium';
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+.instrucciones-content button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 34px;
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+    outline-width: 0;
+    border-radius: 4px;
+
+    font-size: 'Quicksand-Medium';
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+
+    background: #5FA13E;
+    background: linear-gradient(to bottom, #6bb347, #569238);
+    background: -webkit-linear-gradient(to bottom, #6bb347, #569238);
+    background: -moz-linear-gradient(to bottom, #6bb347, #569238);
+    border: #335e1d solid 1px;
+
+    transition: box-shadow 0.2s;
+    -webkit-transition: box-shadow 0.2s;
+}
+
+.instrucciones-on #instrucciones-box{
+    animation-name: animacion-instrucciones-on;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    -webkit-animation-name: animacion-instrucciones-on;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 0.5s;
+}
+
+.instrucciones-off #instrucciones-box{
+    animation-name: animacion-instrucciones-off;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
+    -webkit-animation-name: animacion-instrucciones-off;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 0.3s;
+}
+
+.instrucciones-on{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0s;
+    -webkit-transition: opacity 0.5s, visibility 0s;
+}
+.instrucciones-off{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+    -webkit-transition: opacity 0.5s, visibility 0.5s;
+}
+
+@keyframes animacion-instrucciones-on{
+    0%{
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        animation-timing-function: ease-in;
+        -webkit-animation-timing-function: ease-in;
+    }
+    30%{
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out;
+    }
+    70%{
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        animation-timing-function: ease-in;
+        -webkit-animation-timing-function: ease-in;
+    }
+    100%{
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+@keyframes animacion-instrucciones-off{
+    0%{
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100%{
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+}
 
 
 #menu_btn_responsive{
